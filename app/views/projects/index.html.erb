@@ -1,0 +1,13 @@
+<h1>Projects<h1>
+<u1>
+	<% @projects.each do  |p| %>
+		<li> 
+			<%= link_to p.title, project_path(p.id) %> (<%= p.tasks.unfinished.count %>/<%= p.tasks.count %>)
+			<%= link_to "[Edit]" , edit_project_path(p.id) %>
+			<%= link_to "[Delete]" , project_path(p.id), 
+				method: :delete, data: {confirm: "Are you suer?"} %>
+		</li>
+	<% end %>
+</u1>
+
+<p><%= link_to "Add new project", new_project_path %></p>

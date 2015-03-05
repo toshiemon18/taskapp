@@ -1,0 +1,12 @@
+<%= form_for @projects do |f| %>
+<p>
+	<%= f.label :title %><br>
+	<%= f.text_field :title %>
+	<% if @projects.errors.any? then %>
+		<%= @projects.errors.messages[:title][0] %>
+	<% end %>
+</p>
+<p>
+	<%= f.submit %>
+</p>
+<% end %>
